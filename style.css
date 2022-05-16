@@ -23,6 +23,7 @@ form {
   align-items: center;
 }
 
+
 form input,
 form button {
   padding: 0.5rem;
@@ -39,7 +40,7 @@ form button {
 }
 
 form button:hover{
-    background:burlywood;
+    background:lightgreen;
     color:white;
 }
 
@@ -63,6 +64,8 @@ form button:hover{
   justify-content: space-between;
   align-items: center;
   transition:all 0.5s ease;
+  border-radius: 0.2rem;
+ 
 }
 .todo li {
   flex:1;
@@ -81,4 +84,23 @@ form button:hover{
 
 .complete-btn {
   background:rgb(73, 204,73)
+}
+
+.todo-item {
+  padding: 0rem 0.5rem;
+}
+
+.fa-trash,
+.fa-check {
+  pointer-events: none;
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.fall {
+  transform: translateY(8rem) rotateZ(20deg);
+  opacity: 0;
 }
