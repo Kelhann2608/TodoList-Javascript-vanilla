@@ -5,7 +5,7 @@
 }
 
 body {
-  background-image: linear-gradient(120deg, blue, rgba(88, 135, 237, 0.847));
+  background-image: linear-gradient(120deg, rgb(55, 55, 219), rgba(88, 135, 237, 0.847));
   color: burlywood;
   font-family: "Poppins", sans-serif;
   min-height: 100vh;
