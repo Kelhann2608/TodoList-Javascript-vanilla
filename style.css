@@ -114,8 +114,8 @@ select {
   border: none;
   color: black;
   width: 10rem;
+  height: 3.2rem;
   cursor: pointer;
-  border-radius:.5rem;
   padding: 1rem;
 }
 
