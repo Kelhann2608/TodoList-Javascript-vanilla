@@ -1,3 +1,3 @@
 # TodoList-Javascript-vanilla
 
-création d'une todolist en javascript vanilla pour s'entrainer.
+petit exercice de création de todolist pour m’aider à mieux comprendre les bases de javascript
