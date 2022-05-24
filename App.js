@@ -44,8 +44,8 @@ function deleteCheck(e) {
   if (item.classList[0] === "trash-btn") {
     const todo = item.parentElement;
     todo.classList.add("fall");
+    removeLocalTodos(todo);
     todo.addEventListener("transitionend", function () {
-      removeLocalTodos(todo);
       todo.remove();
     });
   }
@@ -62,30 +62,29 @@ function filterTodo(e) {
     switch (e.target.value) {
       case "all":
         todo.style.display = "flex";
-      break;
+        break;
       case "completed":
-      if(todo.classList.contains("completed")){
-        todo.style.display = "flex";
-      } else {
-        todo.style.display = "none";
-      }
-      break;
+        if (todo.classList.contains("completed")) {
+          todo.style.display = "flex";
+        } else {
+          todo.style.display = "none";
+        }
+        break;
       case "uncompleted":
-      if(!todo.classList.contains("completed")){
-        todo.style.display = "flex";
-      } else {
-        todo.style.display = "none";
-      }
-      break;
+        if (!todo.classList.contains("completed")) {
+          todo.style.display = "flex";
+        } else {
+          todo.style.display = "none";
+        }
+        break;
     }
-  })
-
+  });
 }
 
 function saveLocalTodos(todo) {
   //Checker si il y a des items existants
   let todos;
-  if (localStorage.getItem("todos") === null){
+  if (localStorage.getItem("todos") === null) {
     todos = [];
   } else {
     todos = JSON.parse(localStorage.getItem("todos"));
@@ -96,12 +95,12 @@ function saveLocalTodos(todo) {
 
 function getTodos() {
   let todos;
-  if (localStorage.getItem("todos") === null){
+  if (localStorage.getItem("todos") === null) {
     todos = [];
   } else {
     todos = JSON.parse(localStorage.getItem("todos"));
   }
-  todos.forEach(function(todo){
+  todos.forEach(function (todo) {
     //Todo DIV
     const todoDiv = document.createElement("div");
     todoDiv.classList.add("todo");
@@ -122,15 +121,17 @@ function getTodos() {
     todoDiv.appendChild(trashButton);
     //Ajouter notre todo à notre TodoList
     todoList.appendChild(todoDiv);
-  })
+  });
 }
 
 function removeLocalTodos(todo) {
   let todos;
-  if (localStorage.getItem("todos") === null){
+  if (localStorage.getItem("todos") === null) {
     todos = [];
   } else {
     todos = JSON.parse(localStorage.getItem("todos"));
   }
-  console.log(todo);
+  const todoIndex = todo.children[0].innerText;
+  todos.splice(todos.indexOf(todoIndex), 1);
+  localStorage.setItem("todos", JSON.stringify(todos));
 }
